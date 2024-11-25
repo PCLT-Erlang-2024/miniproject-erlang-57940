@@ -10,7 +10,7 @@
     max_package_weight = 5,
     min_truck_capacity = 20,
     max_truck_capacity = 20,
-    min_truck_dispatch_time = 0,
+    min_truck_dispatch_time = 0, % time in milliseconds
     max_truck_dispatch_time = 0
 }).
 

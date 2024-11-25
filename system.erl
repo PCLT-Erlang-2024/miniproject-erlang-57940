@@ -35,7 +35,9 @@ run(Config) ->
             Q,
             util:random_between(
                 Config#system_config.min_truck_capacity, Config#system_config.max_truck_capacity
-            )
+            ),
+            Config#system_config.min_truck_dispatch_time,
+            Config#system_config.max_truck_dispatch_time
         )
      || _ <- lists:seq(1, Config#system_config.num_trucks)
     ],

@@ -10,4 +10,4 @@ main(_) ->
             template => [time, " ", pid, ": ", msg, "\n"]
         }}
     ),
-    system:run(#system_config{num_packages = 10000, num_belts = 1, num_trucks = 1}).
+    system:run(#system_config{num_packages = 10000, num_belts = 8, num_trucks = 20, max_truck_dispatch_time=1000}).
