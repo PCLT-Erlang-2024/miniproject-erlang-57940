@@ -117,6 +117,10 @@ handle(S = #state{weight = W, capacity = C}, {load, Pid, Package}) ->
             _ when NewWeight < C -> {{ok, true}, S#state{weight = NewWeight}};
             _ -> {{ok, false}, S#state{weight = NewWeight}}
         end,
+    case Response of
+        {ok, _} -> util:log("loaded ~p, new weight is ~p", [Package, NewWeight]);
+        {full} -> util:log("failed to load package, would exceed capacity")
+    end,
     Pid ! {self(), Response},
     NewState;
 handle(
